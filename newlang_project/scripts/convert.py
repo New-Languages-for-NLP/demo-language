@@ -47,9 +47,11 @@ def convert(export_path: str, n_sents:int, lang:str):
         set(conllu_stem) & set(conll_stem)
     )   
     
+    converted_conll_files = [f for f in conll_path.iterdir()]
+    converted_conllu_files = [f for f in conllu_path.iterdir()]
     all_files = list(
-        set(conllu_files)
-        | set(conll_files)
+        set(converted_conllu_files)
+        | set(converted_conll_files)
     )
 
     for file_ in all_files:
