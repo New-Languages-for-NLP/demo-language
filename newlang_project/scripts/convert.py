@@ -35,7 +35,7 @@ def convert(export_path: str, n_sents:int, lang:str):
     for conllu in conllu_files:
         subprocess.run(['python', '-m', 'spacy', 'convert', f'{str(conllu)}', "./corpus/conllu", f"-n {n_sents}"])
         
-    conll_files = [f for f in export_path.iterdir() if f.suffix == ".conll"]
+    conll_files = [f for f in conll_path.iterdir() if f.suffix == ".conll"]
     #convert conll to .spacy 
     for conll in conll_files:
         subprocess.run(['python', '-m', 'spacy', 'convert', f'{str(conll)}', "./corpus/conll", f"-n {n_sents}"])
